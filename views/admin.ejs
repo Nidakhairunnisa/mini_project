@@ -1,0 +1,21 @@
+<div class="aligncenter">
+    <h1><%= page %></h1>
+</div>
+
+
+    <a id = "add_admin" class="btn btn-success" href="/add_admin" role="button">Add Admin</a>
+    <table class="table">
+        <thead class>
+		<tr>
+			<th scope="col">ID</th>
+            <th scope="col">Name</th>
+            <th scope="col">detail</th>
+		</tr>
+        <tr>  
+            <% console.log(admin.id_admin)%>
+            <td><%= admin.id_admin %></td> 
+            <td><%= admin.nama_admin %></td> 
+            <td><a id = "detail" class="btn btn-success" href="/detail_admin/<%= admin.id_admin %>" role="button">Detail</a></td>
+        </tr>
+    </table>
+

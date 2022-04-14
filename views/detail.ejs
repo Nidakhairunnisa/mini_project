@@ -1,0 +1,21 @@
+<h3> Detail List</h3>
+
+<% //card data detail %> 
+<div class="card" style="width: 18rem;">
+    <div class="card-body">
+      <% if(data.length){
+        for(var id = 0; id < data.length; id++) { %>
+          <h5 class="card-title"><%= data[id].name %></h5>
+          <h6 class="card-subtitle mb-2 text-muted"><%= data[id].email %></h6>
+          <p class="card-text"><%= data[id].mobile %></p>
+          <a href= "/detail/update/<%= data[id].name %>"><button type="button" class="btn btn-warning" >Update</button>
+          <a href= "/detail/del/<%= data[id].name %>"><button type="button" class="btn btn-danger" onclick="return confirm('Are you sure you want to delete this comment?')">Delete</button> <br><br>
+        <% }
+      }else{ %>
+      <tr>
+          <td colspan="6">No user</td>
+      </tr>
+      <% } %>
+        <a href="/contact" class="card-link">Contact</a></a>
+    </div>
+</div>

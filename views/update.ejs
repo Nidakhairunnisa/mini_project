@@ -1,0 +1,37 @@
+<div class="container mt-3">
+  <div class="row">
+    <div div class="col-md-6">
+      <h2>Edit contact form</h2>
+      <% if (typeof notif != 'undefined') { %>
+        <% notif.forEach(function (alert)  { %>
+          <div class="alert alert-danger" role="alert">
+            <%= alert.msg %>
+          </div>
+          <%})%>
+      <% } %>  
+      <% //console.log(data.name)%>
+      <% if(data.length){
+        for(var id = 0; id < data.length; id++) { %>
+        <form method="post" action="/detail/update/<%= data[id].name%>">
+        <div class="form-group">
+          <label for="labelname">Name</label> 
+          <input type="hidden" class="form-control" id="oldname" name="oldname" aria-describedby="nameHelp" value="<%= (data[id].oldname)? data[id].oldname : data[id].name  %>" placeholder="Enter Name"> 
+          <input type="text" class="form-control" id="labelname" name="name" aria-describedby="nameHelp" value="<%= data[id].name %>" placeholder="Enter Name"> 
+        </div>
+        <div class="form-group">
+            <label for="labelemail1">Email address</label>
+            <input type="text" class="form-control" id="labelemail1" name="email" aria-describedby="emailHelp" value="<%= data[id].email %>" placeholder="Enter email">
+          </div>
+        <div class="form-group">
+          <label for="mobile">Mobile</label>
+          <input type="text" class="form-control" id="labelmobile" name="mobile" value="<%= data[id].mobile %>" placeholder="Enter mobile">
+        </div>
+        <button type="submit" class="btn btn-primary">Update</button>
+      </form>
+      <%}      
+    } %>
+    </div>
+  </div>
+</div>
+
+
